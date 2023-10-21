@@ -1,0 +1,31 @@
+version: "3.8"
+services:
+
+  # application
+  app:
+    image: weather_service_app
+    container_name: "weather_service_app"
+    restart: always
+    build: ./app
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app/migrations/versions:/app/migrations/versions
+    links:
+      - postgresql
+
+  # database
+  postgresql:
+    container_name: "weather_service_db"
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=weather_service
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data

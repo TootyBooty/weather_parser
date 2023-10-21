@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "weather-app"
+version = "0.1.0"
+description = ""
+authors = ["TootyBooty <tooty6ooty@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.104.0"
+sqlalchemy = "^2.0.22"
+alembic = "^1.12.0"
+greenlet = "^3.0.0"
+aiohttp = "^3.8.6"
+pre-commit = "^3.5.0"
+pytz = "^2023.3.post1"
+pydantic-settings = "^2.0.3"
+apscheduler = "^3.10.4"
+asyncpg = "^0.28.0"
+uvicorn = "^0.23.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
